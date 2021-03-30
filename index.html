@@ -60,3 +60,27 @@ let inputDecimal = (dot) =>{
     calculator.displayValue += dot;
   }
 }
+
+let handleOperator = (nextOperator) =>{
+      const { firstOperand, displayValue, operator } = calculator
+  const inputValue = parseFloat(displayValue);
+  
+  if (operator && calculator.waitingForSecondOperand)  {
+    calculator.operator = nextOperator;
+    return;
+  }
+
+
+  if (firstOperand == null && !isNaN(inputValue)) {
+    calculator.firstOperand = inputValue;
+  } else if (operator) {
+    const result = calculate(firstOperand, inputValue, operator);
+
+    calculator.displayValue = String(result);
+    calculator.firstOperand = result;
+  }
+
+  calculator.waitingForSecondOperand = true;
+  calculator.operator = nextOperator;
+}
+
