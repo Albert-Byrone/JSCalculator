@@ -84,3 +84,16 @@ let handleOperator = (nextOperator) =>{
   calculator.operator = nextOperator;
 }
 
+let calculate = (firstOperand, secondOperand, operator)=> {
+  if (operator === '+') {
+    return firstOperand + secondOperand;
+  } else if (operator === '-') {
+    return firstOperand - secondOperand;
+  } else if (operator === '*') {
+    return firstOperand * secondOperand;
+  } else if (operator === '/') {
+    return firstOperand / secondOperand;
+  }
+
+  return secondOperand;
+}
