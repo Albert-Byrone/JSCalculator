@@ -105,3 +105,8 @@ let resetCalculator =()=> {
   calculator.operator = null;
 }
 
+let updateDisplay = ()=> {
+  const display = document.querySelector('.calculator-screen');
+  display.value = calculator.displayValue;
+}
+
